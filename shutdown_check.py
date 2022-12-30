@@ -7,7 +7,7 @@ from threading import Thread
 
 
 def shutdown_check():
-    print("start shutdown check")
+    print("start UPSv3 shutdown check")
     shutdown_pin = 18
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
@@ -16,7 +16,7 @@ def shutdown_check():
     cur_time = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
     start_time = "Start time :"+cur_time + "\n"
 
-    with open("/home/pi/log.txt","a+") as f:
+    with open("/home/bmo/log.txt","a+") as f:
         f.write(start_time)
 
     while True:
@@ -35,7 +35,7 @@ def shutdown_check():
     print("active halt...")
     cur_time = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
     stop_time = "active halt...Halt time :"+ cur_time + "\n\n"
-    with open("/home/pi/log.txt","a+") as f:
+    with open("/home/bmo/log.txt","a+") as f:
         f.write(stop_time)
     os.system("sudo sync")
     time.sleep(1)
