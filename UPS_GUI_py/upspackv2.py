@@ -1,13 +1,10 @@
 #!/usr/bin/python3
 
-
-import re
 import serial
-import time
+import re
 import RPi.GPIO as GPIO
-import os
-import sys
-
+import os,sys
+import time
 
 class UPS2:
     def __init__(self,port):
@@ -70,32 +67,8 @@ class UPS2_IO:
 
 
 
-
-
-test = UPS2("/dev/ttyAMA0")
-
-
-def reflash_data():
-    version,vin,batcap,vout = test.decode_uart()
-#    loc_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    cur_time = time.time()
-    cur_time = cur_time - load_time
-    print(f"Running: {int(cur_time)}s")
-
-
-
-    batcap_int = int(batcap)
-
-
-    print(f"Battery Capacity: {str(batcap)}%")
-    print(f"Output Voltage: {vout} mV")
-
-
 if __name__ == "__main__":
-    print("This is UPS v3 class file")
-    load_time = time.time()
-    version,vin,batcap,vout = test.decode_uart()
-    print(test.decode_uart())
+    print("This is UPS v2 class file")
 #    test = UPS2("/dev/ttyAMA0")
 #    version,vin,batcap,vout = test.decode_uart()
 #    print("--------------------------------")
@@ -122,3 +95,6 @@ if __name__ == "__main__":
 #        if i == 10000:
 #            i = 1
    
+        
+        
+    
